@@ -480,7 +480,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
 -(void)startWaitDataDispathTiemr{
     __block NSInteger duration = defaultWaitDataDuration;
     if(_waitDataDuration) duration = _waitDataDuration;
-    _waitDataTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+    _waitDataTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
     NSTimeInterval period = 1.0;
     dispatch_source_set_timer(_waitDataTimer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(_waitDataTimer, ^{
@@ -507,7 +507,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
         [_skipButton startRoundDispathTimerWithDuration:duration];
     }
     NSTimeInterval period = 1.0;
-    _skipTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
+    _skipTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
     dispatch_source_set_timer(_skipTimer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(_skipTimer, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
