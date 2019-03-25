@@ -200,16 +200,18 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
 }
 
 -(void)setupLaunchAd{
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    window.rootViewController = [XHLaunchAdController new];
-    window.rootViewController.view.backgroundColor = [UIColor clearColor];
-    window.rootViewController.view.userInteractionEnabled = NO;
-    window.windowLevel = UIWindowLevelStatusBar + 1;
-    window.hidden = NO;
-    window.alpha = 1;
-    _window = window;
-    /** 添加launchImageView */
-    [_window addSubview:[[XHLaunchImageView alloc] initWithSourceType:_sourceType]];
+    if (!_window) {
+        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        window.rootViewController = [XHLaunchAdController new];
+        window.rootViewController.view.backgroundColor = [UIColor clearColor];
+        window.rootViewController.view.userInteractionEnabled = NO;
+        window.windowLevel = UIWindowLevelStatusBar + 1;
+        window.hidden = NO;
+        window.alpha = 1;
+        _window = window;
+        /** 添加launchImageView */
+        [_window addSubview:[[XHLaunchImageView alloc] initWithSourceType:_sourceType]];
+    }
 }
 
 /**图片*/
