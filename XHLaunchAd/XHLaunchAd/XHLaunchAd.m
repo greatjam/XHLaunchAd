@@ -216,6 +216,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
 
 /**图片*/
 -(void)setupImageAdForConfiguration:(XHLaunchImageAdConfiguration *)configuration{
+    [self setupLaunchAd];
     if(_window == nil) return;
     [self removeSubViewsExceptLaunchAdImageView];
     XHLaunchAdImageView *adImageView = [[XHLaunchAdImageView alloc] init];
@@ -314,6 +315,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
 
 /**视频*/
 -(void)setupVideoAdForConfiguration:(XHLaunchVideoAdConfiguration *)configuration{
+    [self setupLaunchAd];
     if(_window ==nil) return;
     [self removeSubViewsExceptLaunchAdImageView];
     if(!_adVideoView){
