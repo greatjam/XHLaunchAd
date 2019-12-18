@@ -80,7 +80,7 @@ static NSString *const VideoPlayStatus = @"status";
     _videoPlayer = nil;
     
     /** 释放音频焦点 */
-    [[AVAudioSession sharedInstance] setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
+//    [[AVAudioSession sharedInstance] setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
 }
 
 - (void)runLoopTheMovie:(NSNotification *)notification{
@@ -113,8 +113,8 @@ static NSString *const VideoPlayStatus = @"status";
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(runLoopTheMovie:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
         
         /** 获取音频焦点 */
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+//        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//        [[AVAudioSession sharedInstance] setActive:YES error:nil];
     }
     return _videoPlayer;
 }
